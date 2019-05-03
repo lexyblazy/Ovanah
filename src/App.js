@@ -5,6 +5,9 @@ import { fetchWeather } from "./actions";
 
 class App extends Component {
   componentDidMount() {
+    // const { dispatch } = this.props;
+    // dispatch(fetchWeather());
+
     navigator.geolocation.getCurrentPosition(
       pos => {
         const { latitude, longitude } = pos.coords;
