@@ -1,0 +1,27 @@
+Ovanah Frontend Coding Challenge
+
+Create a react app that displays a 5 day weather forecast.
+Send a zip file of all the code.  Include a README about project usage and explain your approach along with technical difficulties.
+
+Minimum tech requirements:
+1. Use Redux to hold weather information, user location, api communication status, and authorization status.
+2. Use component state to hold entered input.
+3. Use axios to fetch data.
+4. Use mateial ui for components
+
+The api we are using is https://www.metaweather.com/api/.
+
+Screens:
+1. Get user's geolocation and display weather information. 
+ Screen should display the city name and a row of cards with the weather state image and queried/useful
+  information.  The screen must be responsive.
+2. Add a search bar with a search button for user to search for a specific city.
+If the city name is ambiguous, show a screen with the list of cities to choose from.
+ Search bar should be fixed on the top.
+3.Create a css spinner when reetriving data from the api. 
+Disable search bar input when loading.
+4. Show no results screen if no results are returned.
+5. Create a login page.  Show this screen first if someone tries to access previous screens if they are not logged in.
+Hard code a password in Redux.  Set authorization state in redux.
+
+If you have time, host this on Google Cloud.
