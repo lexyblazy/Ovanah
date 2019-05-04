@@ -17,6 +17,7 @@ class SearchBar extends Component {
     dispatch(searchCity(term));
   };
   render() {
+    const {inactive} = this.props;
     return (
       <div className="row">
         <div className="input-field col s8">
@@ -25,6 +26,7 @@ class SearchBar extends Component {
             type="text"
             placeholder="Search for a city"
             onChange={this.handleChange}
+            disabled={inactive}
           />
           <label htmlFor="icon_prefix" />
         </div>
@@ -33,7 +35,7 @@ class SearchBar extends Component {
             className="waves-effect waves-light btn"
             onClick={this.search}
             style={{ marginTop: 25, backgroundColor: PRIMARY_COLOR }}
-            disabled={this.state.term.length < 1}
+            disabled={this.state.term.length < 1 || inactive }
           >
             <i className="material-icons left">search</i>GO
           </button>

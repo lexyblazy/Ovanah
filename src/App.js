@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import NavBar from './components/NavBar';
 import SearchBar from './components/SearchBar';
 import { fetchWeather } from './actions';
 import Card from './components/Card';
 import { BASE_URL } from './actions/constants';
+import Spinner from './components/Spinner';
 
 class App extends Component {
   componentDidMount() {
@@ -25,20 +27,24 @@ class App extends Component {
       Weather: { payload = [] },
     } = this.props;
     return payload.map(p => {
-    const imageSrc = `${BASE_URL}/static/img/weather/${p.weather_state_abbr}.svg`;
-      return <Card imageSrc={imageSrc} data={p} key={p.id}/>;
+      const imageSrc = `${BASE_URL}/static/img/weather/${
+        p.weather_state_abbr
+      }.svg`;
+      return <Card imageSrc={imageSrc} data={p} key={p.id} />;
     });
   };
+
   render() {
+    const {
+      Weather: { fetchingCityData = false },
+    } = this.props;
     return (
       <div className="App">
         <NavBar />
         <div className="container">
-          <SearchBar />
-          <div className="row">
-          {this.renderCards()}
-          
-          </div>
+          <SearchBar inactive={fetchingCityData} />
+          {fetchingCityData && <Spinner />}
+          <div className="row">{this.renderCards()}</div>
         </div>
       </div>
     );
