@@ -7,7 +7,7 @@ const NavBar = props => {
       <nav>
         <div className="nav-wrapper" style={{ backgroundColor: PRIMARY_COLOR }}>
           <a href="/" className="brand-logo">
-            <i className="material-icons">cloud</i>Weather App
+            <i className="material-icons">cloud</i>Weather
           </a>
           <ul className="right hide-on-med-and-down">
             <li>
