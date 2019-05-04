@@ -10,7 +10,7 @@ const INITIAL_STATE = {};
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_CITY_DATA:
-      return { ...state, fetchingCityData: true };
+      return { ...state, fetchingCityData: true,noCityData: false, };
     case FETCH_CITY_DATA_SUCCESS:
       return {
         ...state,
