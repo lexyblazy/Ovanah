@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Spinner = () => (
-  <div className="preloader-wrapper big active center-align">
+const Spinner = ({size}) => (
+  <div className={`preloader-wrapper ${size} active center-align`}>
     <div className="spinner-layer spinner-blue-only">
       <div className="circle-clipper left">
         <div className="circle" />

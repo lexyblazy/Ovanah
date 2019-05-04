@@ -2,6 +2,10 @@
 export const FETCH_USER = 'FETCH_USER';
 export const FETCH_CITY_DATA = 'FETCH_CITY_DATA';
 export const FETCH_CITY_DATA_SUCCESS = 'FETCH_CITY_DATA_SUCCESS';
+export const GET_CITIES_SUCCESS = 'GET_CITIES_SUCCESS';
+export const NO_CITY_DATA = 'NO_CITY_DATA';
+
+export const PASSWORD = '12345';
 
 //COLORS
 export const PRIMARY_COLOR = '#3498db';

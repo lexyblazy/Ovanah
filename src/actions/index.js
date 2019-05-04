@@ -3,17 +3,32 @@ import {
   FETCH_CITY_DATA,
   FETCH_CITY_DATA_SUCCESS,
   BASE_API_URL,
+  GET_CITIES_SUCCESS,
+  NO_CITY_DATA,
 } from './constants';
+
+const handleResults = (dispatch, data) => {
+  if (data.length > 1) {
+    dispatch({
+      type: GET_CITIES_SUCCESS,
+      payload: data,
+    });
+  } else {
+    dispatch({
+      type: NO_CITY_DATA,
+      payload: [],
+    });
+  }
+};
 
 export const fetchWeather = (lat, lng) => async dispatch => {
   try {
     const url = `${BASE_API_URL}/location/search/?lattlong=${lat},${lng}`;
-    // const res = await axios.get(`${url}`);
-    // console.log(res.data);
-    // dispatch({ type: FETCH_USER, payload: res.data });
+    const res = await axios.get(`${url}`);
+    handleResults(dispatch, res.data);
   } catch (error) {
     console.log(error);
-  } 
+  }
 };
 
 export const searchCity = searchTerm => async dispatch => {
@@ -26,12 +41,13 @@ export const searchCity = searchTerm => async dispatch => {
         const [city] = res.data;
         const woeidUrl = `${BASE_API_URL}/location/${city.woeid}`;
         const forecastRes = await axios.get(woeidUrl);
-        const { consolidated_weather } = forecastRes.data;
 
         dispatch({
           type: FETCH_CITY_DATA_SUCCESS,
-          payload: consolidated_weather,
+          payload: forecastRes.data,
         });
+      } else {
+        handleResults(dispatch, res.data);
       }
     }
   } catch (error) {
