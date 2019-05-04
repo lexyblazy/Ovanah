@@ -65,7 +65,7 @@ class App extends Component {
           <div className="container">
             <SearchBar inactive={fetchingCityData} />
             {fetchingCityData && (
-              <div class="row">
+              <div className="row">
                 <Spinner size="big" />
               </div>
             )}
