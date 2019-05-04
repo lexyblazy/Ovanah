@@ -20,7 +20,7 @@ class SearchBar extends Component {
     const {inactive} = this.props;
     return (
       <div className="row">
-        <div className="input-field col s8">
+        <div className="input-field col s8 m8">
           <input
             id="icon_prefix"
             type="text"

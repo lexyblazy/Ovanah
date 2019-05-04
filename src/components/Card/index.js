@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({ imageSrc, data }) => {
   return (
-    <div className="col s4 m4">
+    <div className="col s12 m4">
       <div className="card">
         <div className="card-image" style={{ padding: 20 }}>
           <img src={imageSrc} className="responsive-img" alt="weather" />

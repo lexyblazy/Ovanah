@@ -28,7 +28,9 @@ One thing to note is I did not use a routing library(react-router).
 I assumed it may be too much overhead since the entire app design was simple.<br>
 However I can hook it up in less than 30 minutes if required.<br>
 Also ,I intially wanted to make use of a full fledged material ui react framework
-[MaterialUI](https://material-ui.com/), but it might too much of an overhead and unnecessary bundle size in this context.
+[MaterialUI](https://material-ui.com/), but it might too much of an overhead and unnecessary bundle size in this context.<br>
+Re: 5 day weather forecast <br>
+The API returned 6 days weather forecast, so I render all 6
 
 ### `npm run build`
 

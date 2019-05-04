@@ -26,7 +26,7 @@ class Login extends Component {
     } = this.props;
     return (
       <div className="row container">
-        <div className="col s8">
+        <div className="col s8 m8">
           <div className="row">
             <div className="row">
               <h5 className="center-align">Login: Default password is 12345</h5>
