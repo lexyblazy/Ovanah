@@ -1,15 +1,39 @@
-import axios from "axios";
-const FETCH_USER = "FETCH_USER";
+import axios from 'axios';
+import {
+  FETCH_CITY_DATA,
+  FETCH_CITY_DATA_SUCCESS,
+  BASE_API_URL,
+} from './constants';
 
-const BASE_API_URL = "https://www.metaweather.com/api";
 export const fetchWeather = (lat, lng) => async dispatch => {
   try {
     const url = `${BASE_API_URL}/location/search/?lattlong=${lat},${lng}`;
-    const proxyServer = "https://cors-anywhere.herokuapp.com"
+    // const res = await axios.get(`${url}`);
+    // console.log(res.data);
+    // dispatch({ type: FETCH_USER, payload: res.data });
+  } catch (error) {
+    console.log(error);
+  } 
+};
 
-    const res = await axios.get(`${proxyServer}/${url}`);
-    console.log(res);
-    dispatch({ type: FETCH_USER, payload: res.data });
+export const searchCity = searchTerm => async dispatch => {
+  try {
+    dispatch({ type: FETCH_CITY_DATA });
+    const url = `${BASE_API_URL}/location/search/?query=${searchTerm}`;
+    const res = await axios.get(url);
+    if (res.data) {
+      if (res.data.length === 1) {
+        const [city] = res.data;
+        const woeidUrl = `${BASE_API_URL}/location/${city.woeid}`;
+        const forecastRes = await axios.get(woeidUrl);
+        const { consolidated_weather } = forecastRes.data;
+
+        dispatch({
+          type: FETCH_CITY_DATA_SUCCESS,
+          payload: consolidated_weather,
+        });
+      }
+    }
   } catch (error) {
     console.log(error);
   }

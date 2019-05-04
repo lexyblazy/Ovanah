@@ -8,7 +8,7 @@ Minimum tech requirements:
 1. Use Redux to hold weather information, user location, api communication status, and authorization status.
 2. Use component state to hold entered input.
 3. Use axios to fetch data.
-4. Use mateial ui for components
+4. Use material ui for components
 
 The api we are using is https://www.metaweather.com/api/.
 
