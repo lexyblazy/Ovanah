@@ -11,6 +11,9 @@ import ListItem from './components/ListItem';
 import Login from './components/Login';
 
 class App extends Component {
+  componentDidMount() {
+    this.getUserGeolocation();
+  }
   getUserGeolocation = () => {
     navigator.geolocation.getCurrentPosition(
       pos => {
@@ -60,7 +63,6 @@ class App extends Component {
         <NavBar />
         {isAuthenticated ? (
           <div className="container">
-            {this.getUserGeolocation()}
             <SearchBar inactive={fetchingCityData} />
             {fetchingCityData && (
               <div class="row">

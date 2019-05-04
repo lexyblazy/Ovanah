@@ -5,6 +5,9 @@ import {
   BASE_API_URL,
   GET_CITIES_SUCCESS,
   NO_CITY_DATA,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  INCORRECT_PASSWORD,
 } from './constants';
 
 const handleResults = (dispatch, data) => {
@@ -14,6 +17,7 @@ const handleResults = (dispatch, data) => {
       payload: data,
     });
   } else {
+    window.M.toast({ html: 'No data found' });
     dispatch({
       type: NO_CITY_DATA,
       payload: [],
@@ -28,6 +32,7 @@ export const fetchWeather = (lat, lng) => async dispatch => {
     handleResults(dispatch, res.data);
   } catch (error) {
     console.log(error);
+    window.M.toast({ html: error.response });
   }
 };
 
@@ -52,5 +57,22 @@ export const searchCity = searchTerm => async dispatch => {
     }
   } catch (error) {
     console.log(error);
+    window.M.toast({ html: error.response });
+  }
+};
+
+export const login = typedPassword => (dispatch, getState) => {
+  const {
+    Auth: { password = '' },
+  } = getState();
+  if (password === typedPassword) {
+    dispatch({
+      type: LOGIN_SUCCESS,
+    });
+  } else {
+    window.M.toast({ html: INCORRECT_PASSWORD });
+    dispatch({
+      type: LOGIN_FAILURE,
+    });
   }
 };

@@ -1,21 +1,23 @@
-import React from "react";
-import { PRIMARY_COLOR } from "../../actions/constants";
+import React from 'react';
+import { PRIMARY_COLOR } from '../../actions/constants';
 
 const NavBar = props => {
   return (
     <nav>
-    <div className="nav-wrapper" style={{backgroundColor: PRIMARY_COLOR}}>
-      <a href="#!" className="brand-logo"><i className="material-icons">cloud</i>Weather App</a>
-      <ul className="right hide-on-med-and-down">
-        <li><a href="sass.html"><i className="material-icons">search</i></a></li>
-        <li><a href="badges.html"><i className="material-icons">view_module</i></a></li>
-        <li><a href="collapsible.html"><i className="material-icons">refresh</i></a></li>
-        <li><a href="mobile.html"><i className="material-icons">more_vert</i></a></li>
-      </ul>
-    </div>
-  </nav>
+      <div className="nav-wrapper" style={{ backgroundColor: PRIMARY_COLOR }}>
+        <a href="/" className="brand-logo">
+          <i className="material-icons">cloud</i>Weather App
+        </a>
+        <ul className="right hide-on-med-and-down">
+          <li>
+            <a href="/">
+              <i className="material-icons">refresh</i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 };
 
-
-export default (NavBar);
+export default NavBar;

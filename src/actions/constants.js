@@ -4,8 +4,11 @@ export const FETCH_CITY_DATA = 'FETCH_CITY_DATA';
 export const FETCH_CITY_DATA_SUCCESS = 'FETCH_CITY_DATA_SUCCESS';
 export const GET_CITIES_SUCCESS = 'GET_CITIES_SUCCESS';
 export const NO_CITY_DATA = 'NO_CITY_DATA';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
-export const PASSWORD = '12345';
+export const DEFAULT_PASSWORD = '12345';
+export const INCORRECT_PASSWORD = 'Incorrect credentials';
 
 //COLORS
 export const PRIMARY_COLOR = '#3498db';
