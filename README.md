@@ -6,7 +6,7 @@ Using NPM
 
 ```
 git clone git@github.com:lexyblazy/Ovanah.git
-cd ovarah
+cd Ovanah
 npm install
 
 ```
